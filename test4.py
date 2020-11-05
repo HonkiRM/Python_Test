@@ -1,5 +1,5 @@
 import os
-path='F:\pythonProject4\新建文件夹'       #定义工作路径
+path=os.getcwd()       #定义工作路径
 hash_lst=[]
 a=0
 b=0
@@ -11,9 +11,10 @@ for home, dirs, files in os.walk(path):
             hash_lst.append(file_hash)
             a+=1
         else:
-            print(path+'\\'+file_name)
             file_name0='\\'+file_name           #给file_name前面加个\，以便调用
-            os.remove(path+file_name0)          #删除语句
-            print(f'已删除{path+file_name0}')
+            print(home+file_name0)
+            os.remove(home+file_name0)          #删除语句
+            print(f'已删除{home+file_name0}')
             b+=1
-print(f'共保存{a}个,共删除{b}个')
+print(f'共保存{a}个文件,共删除{b}个重复文件')
+answer=input('回车键退出')
